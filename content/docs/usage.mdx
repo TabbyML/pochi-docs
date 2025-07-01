@@ -1,38 +1,32 @@
 ---
 title: Usage
 description: Model support and credit system information
+icon: "Amphora"
 ---
 
 # **Usage**
 
 Understanding Pochi's model support and credit system helps you optimize your development workflow and manage costs effectively.
 
-## **What models are supported in Pochi**
+## **What models are supported**
 
 Pochi offers multiple LLM choices to match different development needs and budget requirements.
 
-**Claude 4 Sonnet** (Primary recommendation)
-
-- Best overall performance for code generation and complex reasoning
-- Excellent at understanding visual inputs and design conversion
-- Optimal for full-stack development tasks and architectural decisions
-
-**Gemini 2.5 Pro** (High-performance option)
-
-- Strong performance for web development and API integration
-- Excellent at following coding standards and best practices
-- Great for complex component generation and system design
-
-**Gemini 2.5 Flash** (Fast and cost-effective)
-
-- Quick response times for rapid development cycles
-- Budget-friendly while maintaining good code quality
-- Suitable for simpler development tasks and prototyping
+| Model                     | Recommendation             | Best For                                                                                      |
+| :------------------------ | :------------------------- | :-------------------------------------------------------------------------------------------- |
+| **Claude 3.5 Sonnet**     | Primary recommendation     | Code generation, complex reasoning, visual understanding, and full-stack development.         |
+| **Gemini 2.5 Pro**        | High-performance option    | Web development, API integration, adhering to coding standards, and complex component generation. |
+| **Gemini 2.5 Flash**      | Fast and cost-effective    | Rapid prototyping, simpler development tasks, and budget-friendly projects.                   |
 
 **Switching Models**: You can change models mid-task based on complexity requirements without losing context.
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <img src="/images/account-support/select-model.png" alt="Select Model" width="70%" />
+</div>
 
-![](../../public/images/account-support/select-model.png)
+## **Pricing and Billing**
 
-## **How is credit counted**
+We use **Stripe** to handle all our billing and payment processing securely. 
 
-Pochi uses a credit-based system that charges based on model usage and task complexity. The credit is directly correlated to the number of API calls. We now have two tiers of credit: Basic (Gemini 2.5 Flash), and Premium (Gemini 2.5 Pro, and Claude 4 Sonnet).
+Upon signing up Pochi, users would receive **$20 free usage credits** each month (renews monthly). Your usage is calculated based on the token cost of the LLMs you use, and we pass these costs 
+directly through to you. We bill you automatically if your outstanding balance exceeds **$10**; otherwise, you are billed for any amount owed at the end of your 
+monthly cycle. To help you manage your costs, you can also set a monthly spending budget on your `/profile` page.
