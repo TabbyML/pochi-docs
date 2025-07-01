@@ -6,27 +6,49 @@ icon: "Workflow"
 
 # **Workflows**
 
-Workflows automate common development sequences, allowing you to execute complex tasks with simple commands.
+## What are Workflows?
 
-**Component Creation Workflow:**
+Workflows are step-by-step automation templates that guide Pochi through complex, multi-step processes. Think of them as detailed recipes that Pochi can follow to complete common development tasks consistently and efficiently.
 
-## **React Component Workflow**
+Key Benefits:
+- Consistency - Same process every time, reducing human error
+- Efficiency - Automate repetitive multi-step tasks
+- Knowledge Sharing - Capture team expertise in reusable templates
 
-1. Structure Setup
-   - Create component directory with index file
-   - Generate TypeScript interface for props
-   - Set up CSS module or styled-components
-2. Implementation
-   - Build functional component with proper typing
-   - Implement core functionality with hooks
-   - Add error handling and loading states
-3. Testing & Documentation
-   - Write unit tests with React Testing Library
-   - Create Storybook story for component showcase
-   - Generate prop documentation with examples
 
-**Workflow Execution**: Simply reference a workflow by name:
+### Creating Workflows
+Reusable patterns in `.pochi/workflows/`:
 
-"Follow the Component Creation Workflow to build a user notification badge"
+Example: `.pochi/workflows/create-pr.md`
 
-"Use the API Integration Workflow for the payment processing endpoints"
+```
+Please help create a PR for the current staging changes, following these guidelines:
+- If there are no staging changes but there are uncommitted changes, please stage them first.
+- Create a branch name based on the current git diff status.
+- Write a meaningful commit message/PR title.
+- Use the gh CLI to create a PR.
+- When running the push operation, it might be aborted due to a husky pre-push hook. For formatting issues, amend the files and try again. For other issues, try to resolve them as much as possible.
+- The base branch for the PR should always be `main`.
+- Always push the branch to the remote repository before creating the PR.
+
+When creating PR with markdown description, pay attention to escape backticks, otherwise it will be executed as command substitution in the shell.
+
+```
+
+Example: `.pochi/workflows/review-pr.md`
+
+```
+Please help review a PR using the gh CLI:
+- Ask user which PR to review (by number, URL, or from list)
+- Use `gh pr view` and `gh pr diff` to examine changes
+- Analyze code quality, security, tests, and documentation
+- Check adherence to project coding standards
+- Use askFollowupQuestion to let user choose:
+  - "Approve" - Submit approving review
+  - "Request Changes" - Submit review with change requests
+  - "Comment Only" - Add comments without approval/rejection
+  - "More Details" - Get additional information
+- Submit review using `gh pr review` with appropriate feedback
+
+```
+
