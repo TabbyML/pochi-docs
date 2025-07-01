@@ -5,96 +5,31 @@ description: Step-by-step execution and task management
 
 # **TODO List**
 
-The TODO List provides transparent, step-by-step execution of development tasks, showing exactly what Pochi plans to do and allowing real-time modifications.
+Pochi automatically creates and manages ***TODO lists*** to help you track progress on complex tasks.
 
-![alt_text](../../public/images/core-features/image3.png "image_tooltip")
+![alt_text](/images/core-features/todo-list/todo.png "image_tooltip")
 
-## **What is TODO List / Step-by-Step Execution**
+You can think of it as a shared workspace between you and Pochi. Pochi will clearly show you the step-by-step progress it plans to deliver your tasks, and the real-time progress it's making.
 
-TODO Lists break down your development requests into specific, actionable steps that Pochi executes in sequence, providing complete visibility into the development process.
 
-**How TODO Lists Work**
+## **Interruptions**
 
-When you describe a complex task, Pochi creates a comprehensive TODO list covering:
+Beyond that, just like you how work with real engineers, you can also interrupt Pochi's execution any time when you change your mind, or finds something wrong with Pochi's planning. Interruptions
+come naturally just like how you'd talk with a fellow engineer - simply send a message to indicate your intension, then Pochi would pause and reconsiders task planning based on your message. Some 
+interruption messages could look like 
 
-- Project setup and file structure
-- Component or feature development steps
-- Styling and responsive design implementation
-- Testing and validation requirements
-- Documentation and deployment preparation
-
-**Example TODO Breakdown:**
-
-```text
-Request: "Build a blog system with admin panel"
-
-Generated TODO List:
-□ 1. Set up project structure and dependencies
-□ 2. Create database schema for posts and users
-□ 3. Build authentication middleware and user management
-□ 4. Implement blog post CRUD operations
-□ 5. Create admin interface for content management
-□ 6. Design responsive frontend for blog display
-□ 7. Add comment system with moderation
-□ 8. Set up deployment configuration
-```
-
-**Real-Time Progress**: As Pochi works through the list:
-
-- Completed items are marked with ✅
-- Current work is highlighted
-- Remaining steps provide clear visibility into upcoming work
-- Estimated time for completion is updated
-
-## **TODO List Interruption and Management**
-
-**Interruption (Rejection, Editing)**
-
-Pochi's collaborative approach allows you to interrupt, redirect, or refine work at any stage while preserving context and progress.
-
-**Types of Interruptions:**
-
-**Scope Changes**: Modify requirements mid-development
 
 ```js
-"Stop - add a dark mode toggle to this component before continuing";
 "Change the database from SQLite to PostgreSQL";
-```
-
-**Approach Rejection**: Request a different implementation strategy
-
-```js
 "This layout won't work on mobile. Use a card-based design instead";
 "Don't use inline styles - let's go with CSS modules";
-```
-
-**Priority Shifts**: Reorder TODO execution
-
-```js
 "Skip the styling for now - let's focus on the API integration first";
-"Move the testing TODO to happen after each component is built";
 ```
 
-**Requirement Additions**: Expand the TODO scope
+## **Edits**
 
-```js
-"Also add user role permissions to this auth system";
-"Include email notifications for form submissions";
-```
+If you want to propose alternative TODO ordering, or maybe you've actually just finished one of the TODOs Pochi is planning for himself, you can simply modify the TODO list by marking them as
+***completed***, or simply ***cancel*** some of them.
 
-**Pochi's Context Preservation During Interruptions:**
 
-**Work History**: Completed TODO items remain intact and available for reference
-
-**Project Structure**: File organization and naming patterns are maintained
-
-**Code Patterns**: Established coding style and architecture decisions persist
-
-**Dependencies**: Package installations and configurations are preserved
-
-**Seamless Recovery**: When resuming work after interruption:
-
-- Pochi incorporates your feedback into the updated approach
-- TODO list automatically reflects new requirements
-- Progress continues from the logical checkpoint
-- Consistency with completed work is maintained
+![alt_text](/images/core-features/todo-list/todo-edit.png "image_tooltip")
