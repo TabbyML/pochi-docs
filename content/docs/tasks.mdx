@@ -1,6 +1,7 @@
 ---
 title: Tasks
 description: Task management and collaboration features in Pochi
+icon: "Waypoints"
 ---
 
 # **Tasks**
@@ -10,9 +11,8 @@ description: Task management and collaboration features in Pochi
 Tasks differ from simple prompts by maintaining persistent context, enabling collaborative development, and chain of conversations.
 
 Pochi also keeps persistent state of your tasks, and allows sharing a task if you'd like.
-
 <div style={{ display: 'flex', justifyContent: 'center' }}>
-  <img src="/images/core-features/tasks/task-sharing.png" alt="alt_text" title="image_tooltip" width="50%" />
+  <img src="/images/core-features/tasks/task-sharing.png" alt="alt_text" title="image_tooltip" width="40%" />
 </div>
 
 
@@ -28,7 +28,7 @@ interruption messages could look like
 "Change the database from SQLite to PostgreSQL";
 "This layout won't work on mobile. Use a card-based design instead";
 "Don't use inline styles - let's go with CSS modules";
-"Skip the styling for now - let's focus on the API integration first";
+"Skip the styling for now - let's focus on the API integration first"
 ```
 
 
@@ -39,7 +39,7 @@ Changes are immediately reflected in the task thread with updated plans. All thr
 
 **Auto-approve** allows Pochi to execute certain actions autonomously without requiring manual confirmation for each step, streamlining your development workflow.
 <div style={{ display: 'flex', justifyContent: 'center' }}>
-  <img src="/images/core-features/tasks/auto-approve.png" alt="alt_text" title="image_tooltip" width="40%" />
+  <img src="/images/core-features/tasks/auto-approve.png" alt="alt_text" title="image_tooltip" width="30%" />
 </div>
 
 By default, Pochi asks for your permission (manuel confirming) before taking any action, including reading or writing files.
@@ -60,7 +60,7 @@ If you want to allow Pochi to directly take actions, you can set the **Auto Appr
 For most serious development workflows, we recommend starting with:
 
 - Auto-approving **read** access to project files
-- Setting a reasonable maximum request limit (suggest to start with 3)
+- Setting a reasonable maximum request limit (suggest to start with at least 3)
 
 This gives Pochi enough freedom to explore your codebase without constant interruptions, while still requiring permission for edits or potentially destructive actions.
 
