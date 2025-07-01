@@ -4,112 +4,185 @@ description: Model Context Protocol integration and configuration
 icon: "Spline"
 ---
 
-# **MCP**
+# **MCP (Model Context Protocol)**
 
-Model Context Protocol (MCP) extends Pochi's capabilities by enabling secure integration with external services, databases, and APIs directly within your development workflow.
+The Model Context Protocol (MCP) revolutionizes how Pochi interacts with external services, databases, and APIs. Think of MCP as a universal adapter that connects Pochi to virtually any data source or tool, dramatically expanding what your AI assistant can accomplish.
 
-## **What is MCP**
+## **What is MCP?**
 
-Model Context Protocol is an open protocol that standardizes how applications provide context to LLMs. Think of MCP like a USB-C port for AI applications; it provides a standardized way to connect AI models to different data sources and tools.
+Model Context Protocol is an open standard that allows AI applications to securely connect with external resources. It's like having a universal translator that lets Pochi communicate with databases, APIs, cloud services, and custom tools using a common language.
 
-MCP servers act as intermediaries between Pochi and external tools or data sources. They are small programs that expose functionalities to Pochi, enabling it to interact with the outside world through the MCP.
+### **Key Concepts**
 
-**Key Concepts**
+- **MCP Servers**: Small programs that expose specific functionality to Pochi
+- **Tools**: Functions that Pochi can execute through MCP servers
+- **Resources**: Read-only data sources like files or database queries
+- **Transport**: Communication method (local processes or remote HTTP endpoints)
 
-MCP servers define a set of "tools," which are functions Pochi can execute. These tools offer a wide range of capabilities.
+### **How It Works**
 
-Here's how MCP works:
+1. You configure MCP servers in Pochi's settings
+2. Pochi discovers available tools from each connected server
+3. When you chat with Pochi, it can use these tools to accomplish tasks
+4. All tool executions require your explicit approval for security
 
-- MCP hosts discover the capabilities of connected servers and load their tools, prompts, and resources
-- Resources provide consistent access to read-only data, akin to file paths or database queries
-- Security is ensured as servers isolate credentials and sensitive data. Interactions require explicit user approval
+## **Real-World User Stories**
 
-**Use Cases**
+### **🔍 Automated PR Review Workflow**
+*"Streamline code review process with intelligent GitHub integration"*
 
-Here are some concrete examples of how MCP servers can be used:
+**Setup**: Connect GitHub MCP server with repository access
 
-**Database Operations:**
+**Result**: Pochi can automatically review PRs, check code quality, suggest improvements, and manage PR lifecycle
+**Value**: Faster code review cycles with consistent quality standards
 
-- Generate weekly sales reports
-- Analyze customer behavior patterns
-- Create real-time dashboards for business metrics
+### **🎭 Component Validation with Playwright**
+*"Automatically test and validate UI components across different scenarios"*
 
-**API Testing and Integration:**
+**Setup**: Connect Playwright MCP server for automated browser testing
 
-- Monitor API endpoints for response times
-- Validate endpoint functionality
-- Generate TypeScript interfaces from API responses
+**Result**: Pochi generates components and automatically validates styling, interactions, and responsive behavior through Playwright tests
+**Value**: Consistent component quality with automated visual regression testing
 
-**Cloud Service Management:**
+### **📊 Database-Driven Development**
+*"Query, analyze, and deploy with integrated database operations"*
 
-- Deploy applications to cloud platforms
-- Configure environment variables
-- Set up monitoring and alerts
+**Setup**: Connect PostgreSQL and AWS MCP servers
+**Result**: Pochi can query your database, analyze performance, and deploy directly to AWS
+**Value**: Streamlined development workflow with AI assistance
 
-## **Config MCP Server in Pochi**
+## **Step-by-Step Setup Guide**
 
-Setting up MCP servers in Pochi allows you to connect external services to your development workflow.
+### **Method 1: Using VS Code Settings (Recommended)**
 
-**Accessing MCP Configuration:**
+#### **Step 1: Open Settings**
+1. Open VS Code
+2. Press `Cmd/Ctrl + ,` to open Settings
+3. Search for "pochi mcp" or navigate to Extensions → Pochi
 
-1. Click the "MCP Servers" icon in Pochi's interface
-2. Select "Add New Server" to configure a new integration
-3. Choose from pre-built servers or add custom configurations
-
-**Configuration Options:**
-
-**Database Connections:**
-
-```json
-{
-  "name": "postgres-database",
-  "type": "database",
-  "config": {
-    "host": "localhost",
-    "port": 5432,
-    "database": "development",
-    "user": "developer"
-  },
-  "autoApprove": ["read_tables", "describe_schema"]
-}
-```
-
-**API Services:**
+#### **Step 2: Configure MCP Servers**
+Add to your VS Code `settings.json`:
 
 ```json
 {
-  "name": "github-integration",
-  "type": "github",
-  "config": {
-    "token": "ghp_your_token_here",
-    "repositories": ["your-org/your-repo"]
-  },
-  "autoApprove": ["read_files", "list_issues"]
+  "pochi.mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["playwright-mcp-server"]
+  
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["@upstash/context7-mcp"]
+    },
+    "tabby": {
+    }
+  }
 }
 ```
 
-**Server Management:**
+### **Method 2: Using Pochi's Settings UI**
 
-- **Enable/Disable Servers**: Toggle servers on/off based on project needs
-- **Permission Controls**: Set auto-approve permissions for different operation types
-- **Monitoring and Logs**: View real-time activity and connection health
-- **Security Best Practices**: Use environment variables for credentials and implement least-privilege access
+#### **Step 1: Access MCP Settings**
+1. Open Pochi in VS Code
+2. Click the Settings icon (⚙️) in the bottom toolbar
+3. Navigate to "MCP Servers" section
 
-**Getting Started**
+#### **Step 2: Add Servers**
+1. Click "Add Server" button
+2. Choose from recommended servers or create custom configuration
+3. Fill in server details and credentials
+4. Click "Save" to activate the server
 
-Pochi does not come with any pre-installed MCP servers. You'll need to find and install them separately.
+#### **Step 3: Verify Connection**
+- Look for green status indicators next to server names
+- Check that tools are listed under each server
+- Test by asking Pochi to use a specific tool
 
-Choose the right approach for your needs:
+## **Configuration Examples**
 
-- **Ask Pochi**: You can ask Pochi to help you find or create MCP servers
-- **Build Your Own**: Create custom MCP servers using the MCP SDK
-- **Community Repositories**: Check for community-maintained lists of MCP servers
+### **Local MCP Servers (Stdio Transport)**
 
-**Security Considerations**
+#### **Filesystem Access**
+```json
+{
+  "filesystem": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/files"],
+    "env": {
+      "HOME": "/Users/yourname"
+    }
+  }
+}
+```
 
-When working with MCP servers, it's important to follow security best practices:
+#### **Database Connection**
+```json
+{
+  "postgres": {
+    "command": "python",
+    "args": ["-m", "mcp_postgres", "--connection-string"],
+    "env": {
+      "DATABASE_URL": "postgresql://user:pass@localhost:5432/db"
+    }
+  }
+}
+```
 
-- **Authentication**: Always use secure authentication methods for API access
-- **Environment Variables**: Store sensitive information in environment variables
-- **Access Control**: Limit server access to authorized users only
-- **Data Validation**: Validate all inputs to prevent injection attacks
+#### **Web Search**
+```json
+{
+  "brave-search": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+    "env": {
+      "BRAVE_API_KEY": "your-brave-api-key"
+    }
+  }
+}
+```
+
+### **Remote MCP Servers (HTTP Transport)**
+
+#### **Custom API Server**
+```json
+{
+  "my-api": {
+    "url": "https://api.mycompany.com/mcp",
+    "headers": {
+      "Authorization": "Bearer your-api-token",
+      "X-API-Version": "v1"
+    }
+  }
+}
+```
+
+#### **SSE (Server-Sent Events) Server**
+```json
+{
+  "realtime-data": {
+    "url": "https://data.example.com/mcp/sse",
+    "headers": {
+      "Authorization": "Bearer your-token"
+    }
+  }
+}
+```
+
+## **Advanced Configuration**
+
+### **Server Control Options**
+```json
+{
+  "my-server": {
+    "command": "node",
+    "args": ["server.js"],
+    "disabled": false,                    // Enable/disable entire server
+    "disabledTools": ["dangerous_tool"],  // Disable specific tools
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+}
+```
+
