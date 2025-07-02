@@ -56,15 +56,65 @@ _"Query, analyze, and deploy with integrated database operations"_
 
 ## **Step-by-Step Setup Guide**
 
-### **Method 1: Using VSCode Settings (Recommended)**
+### **Method 1: Using Pochi Settings (Recommended)**
 
-#### **Step 1: Open Settings**
+#### **Step 1: Open Pochi Settings**
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img
+    src="/images/core-features/mcp/open-settings.png"
+    alt="Open Pochi Settings"
+    title="Click settings icon to access MCP configuration"
+    width="70%"
+  />
+</div>
+
+1. Open Pochi in VS Code
+2. Click the Settings icon (⚙️) in the bottom toolbar
+3. This opens the Pochi settings panel where you can manage all configurations
+
+#### **Step 2: Add MCP Servers**
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img
+    src="/images/core-features/mcp/click-mcp-icon.png"
+    alt="Add MCP Server"
+    title="Click the + button to add new MCP servers"
+    width="70%"
+  />
+</div>
+
+1. Navigate to the "MCP Servers" section in settings
+2. Click the "+" button to add a new MCP server
+3. Choose from recommended servers or create custom configuration:
+   - **Playwright** - For automated browser testing
+   - **GitHub** - For repository management
+   - **Database** - For data operations
+   - **Custom** - For your own MCP servers
+
+#### **Step 3: Configure and Activate**
+
+1. Fill in the server details (command, arguments, environment variables)
+2. Click "Save" to activate the server
+3. Verify connection with green status indicators
+
+✅ **Why We Recommend This Method:**
+- Visual interface with guided setup
+- Built-in server templates and recommendations
+- Real-time connection status feedback
+- Easy to manage and modify configurations
+
+### **Method 2: Manual VSCode Settings Configuration**
+
+For advanced users who prefer direct configuration:
+
+#### **Step 1: Open VSCode Settings**
 
 1. Open VS Code
 2. Press `Cmd/Ctrl + ,` to open Settings
 3. Search for "pochi mcp" or navigate to Extensions → Pochi
 
-#### **Step 2: Configure MCP Servers**
+#### **Step 2: Edit settings.json**
 
 Add to your VS Code `settings.json`:
 
@@ -79,49 +129,20 @@ Add to your VS Code `settings.json`:
       "command": "npx",
       "args": ["@upstash/context7-mcp"]
     },
-    "tabby": {}
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "your-github-token"
+      }
+    }
   }
 }
 ```
 
-### **Method 2: Using Pochi's Settings UI**
+#### **Step 3: Restart VSCode**
 
-#### **Step 1: Access MCP Settings**
-
-<div style={{ display: "flex", justifyContent: "center" }}>
-  <img
-    src="/images/core-features/mcp/open-settings.png"
-    alt="alt_text"
-    title="image_tooltip"
-    width="70%"
-  />
-</div>
-
-1. Open Pochi in VS Code
-2. Click the Settings icon (⚙️) in the bottom toolbar
-3. Navigate to "MCP Servers" section
-
-<div style={{ display: "flex", justifyContent: "center" }}>
-  <img
-    src="/images/core-features/mcp/click-mcp-icon.png"
-    alt="alt_text"
-    title="image_tooltip"
-    width="70%"
-  />
-</div>
-
-#### **Step 2: Add Servers**
-
-1. Click "MCP Server +" button
-2. Choose from recommended servers or create custom configuration
-3. Fill in server details and credentials
-4. Click "Save" to activate the server
-
-#### **Step 3: Verify Connection**
-
-- Look for green status indicators next to server names
-- Check that tools are listed under each server
-- Test by asking Pochi to use a specific tool
+Restart VSCode for the changes to take effect.
 
 ## **Configuration Examples**
 
