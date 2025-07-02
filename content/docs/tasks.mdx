@@ -11,11 +11,15 @@ icon: "Waypoints"
 Tasks differ from simple prompts by maintaining persistent context, enabling collaborative development, and chain of conversations.
 
 Pochi also keeps persistent state of your tasks, and allows sharing a task if you'd like.
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-  <img src="/images/core-features/tasks/task-sharing.png" alt="alt_text" title="image_tooltip" width="40%" />
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img
+    src="/images/core-features/tasks/task-sharing.png"
+    alt="alt_text"
+    title="image_tooltip"
+    width="40%"
+  />
 </div>
-
-
 
 ### **Interruptions (Rejection, Editing)**
 
@@ -23,37 +27,38 @@ During Pochi's execution of a task, just like how you work with real engineers, 
 come naturally just like how you'd talk with a fellow engineer - simply send a message to indicate your intension, then Pochi would pause and reconsiders task planning based on your message. Some
 interruption messages could look like
 
-
 ```js
 "Change the database from SQLite to PostgreSQL";
 "This layout won't work on mobile. Use a card-based design instead";
 "Don't use inline styles - let's go with CSS modules";
-"Skip the styling for now - let's focus on the API integration first"
+"Skip the styling for now - let's focus on the API integration first";
 ```
 
-
 Changes are immediately reflected in the task thread with updated plans. All thread participants are notified of modifications, while previous work remains accessible in the thread history. Development resumes seamlessly with new requirements while maintaining consistency.
-
 
 ### **Auto-Approve**
 
 **Auto-approve** allows Pochi to execute certain actions autonomously without requiring manual confirmation for each step, streamlining your development workflow.
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-  <img src="/images/core-features/tasks/auto-approve.png" alt="alt_text" title="image_tooltip" width="30%" />
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img
+    src="/images/core-features/tasks/auto-approve.png"
+    alt="alt_text"
+    title="image_tooltip"
+    width="30%"
+  />
 </div>
 
 By default, Pochi asks for your permission (manuel confirming) before taking any action, including reading or writing files.
 If you want to allow Pochi to directly take actions, you can set the **Auto Approve** permission for that action.
 
-
-| Category | Operations |
-| :------: | :--- |
-| **Read** | Read the file content Pochi decides to look up for analyzing or completing tasks. |
-| **Write** | Creates new files, edits existing code, generates boilerplate, and writes documentation. |
-| **Execute** | Manages dependencies, runs builds, tests, and perform system operations. |
-| **Use MCP** | Interacts with databases, APIs, and other external services to expand its capabilities with MCP server. |
-| **Retry Logic** | Automatically retries failed commands, code changes, and installations. |
-
+|    Category     | Operations                                                                                              |
+| :-------------: | :------------------------------------------------------------------------------------------------------ |
+|    **Read**     | Read the file content Pochi decides to look up for analyzing or completing tasks.                       |
+|    **Write**    | Creates new files, edits existing code, generates boilerplate, and writes documentation.                |
+|   **Execute**   | Manages dependencies, runs builds, tests, and perform system operations.                                |
+|   **Use MCP**   | Interacts with databases, APIs, and other external services to expand its capabilities with MCP server. |
+| **Retry Logic** | Automatically retries failed commands, code changes, and installations.                                 |
 
 ### **Best Practices**
 
@@ -68,14 +73,14 @@ As you build more trust in Pochi's capabilities with your specific projects, you
 
 Remember that you can always adjust these settings as your needs change - tighten permissions for critical production work, or loosen them when prototyping and exploring.
 
+### **Advanced Settings - Developer Only, Use at Your Own Risk**
 
-### **Advanced Settings - For Developers Only**
+Advanced Settings include Developer Mode that allows you to configure Pochi's behavior with advanced options to customize your development workflow and debugging experience. These settings are experimental and may affect stability.
 
+- **Enable Gemini Custom Tool Calls**: Pochi allows you to integrate custom tools by defining them in a dedicated `tools.ts` file.
+  When this feature is enabled, Pochi will automatically detect and utilize the tools you've defined, making them available for use in your development workflow.
+  This enables you to extend Pochi's capabilities with your own custom functionalities.
 
-Advanced Settings include Developer Mode to allow configur Pochi's behavior with advanced options to customize your development workflow and debugging experience. 
-Please enable them at your own risks.
-
-
-
-
-
+- **Enable Tool: newTask**: The `newTask` tool is a powerful feature that allows Pochi to create new tasks programmatically.
+  When this tool is enabled, Pochi can autonomously generate and manage tasks based on your instructions or as part of a larger workflow.
+  This is particularly useful for automating repetitive processes or for creating complex, multi-step operations that involve multiple tasks.
