@@ -29,7 +29,8 @@ Model Context Protocol is an open standard that allows AI applications to secure
 ## **Real-World User Stories**
 
 ### **🔍 Automated PR Review Workflow**
-*"Streamline code review process with intelligent GitHub integration"*
+
+_"Streamline code review process with intelligent GitHub integration"_
 
 **Setup**: Connect GitHub MCP server with repository access
 
@@ -37,7 +38,8 @@ Model Context Protocol is an open standard that allows AI applications to secure
 **Value**: Faster code review cycles with consistent quality standards
 
 ### **🎭 Component Validation with Playwright**
-*"Automatically test and validate UI components across different scenarios"*
+
+_"Automatically test and validate UI components across different scenarios"_
 
 **Setup**: Connect Playwright MCP server for automated browser testing
 
@@ -45,7 +47,8 @@ Model Context Protocol is an open standard that allows AI applications to secure
 **Value**: Consistent component quality with automated visual regression testing
 
 ### **📊 Database-Driven Development**
-*"Query, analyze, and deploy with integrated database operations"*
+
+_"Query, analyze, and deploy with integrated database operations"_
 
 **Setup**: Connect PostgreSQL and AWS MCP servers
 **Result**: Pochi can query your database, analyze performance, and deploy directly to AWS
@@ -56,12 +59,14 @@ Model Context Protocol is an open standard that allows AI applications to secure
 ### **Method 1: Using VSCode Settings (Recommended)**
 
 #### **Step 1: Open Settings**
-1. Open VSCode
+
+1. Open VS Code
 2. Press `Cmd/Ctrl + ,` to open Settings
 3. Search for "pochi mcp" or navigate to Extensions → Pochi
 
 #### **Step 2: Configure MCP Servers**
-Add to your VSCode `settings.json`:
+
+Add to your VS Code `settings.json`:
 
 ```json
 {
@@ -69,14 +74,12 @@ Add to your VSCode `settings.json`:
     "playwright": {
       "command": "npx",
       "args": ["playwright-mcp-server"]
-  
     },
     "context7": {
       "command": "npx",
       "args": ["@upstash/context7-mcp"]
     },
-    "tabby": {
-    }
+    "tabby": {}
   }
 }
 ```
@@ -84,17 +87,38 @@ Add to your VSCode `settings.json`:
 ### **Method 2: Using Pochi's Settings UI**
 
 #### **Step 1: Access MCP Settings**
-1. Open Pochi in VSCode
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img
+    src="/images/core-features/mcp/open-settings.png"
+    alt="alt_text"
+    title="image_tooltip"
+    width="70%"
+  />
+</div>
+
+1. Open Pochi in VS Code
 2. Click the Settings icon (⚙️) in the bottom toolbar
 3. Navigate to "MCP Servers" section
 
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <img
+    src="/images/core-features/mcp/click-mcp-icon.png"
+    alt="alt_text"
+    title="image_tooltip"
+    width="70%"
+  />
+</div>
+
 #### **Step 2: Add Servers**
-1. Click "Add Server" button
+
+1. Click "MCP Server +" button
 2. Choose from recommended servers or create custom configuration
 3. Fill in server details and credentials
 4. Click "Save" to activate the server
 
 #### **Step 3: Verify Connection**
+
 - Look for green status indicators next to server names
 - Check that tools are listed under each server
 - Test by asking Pochi to use a specific tool
@@ -104,11 +128,16 @@ Add to your VSCode `settings.json`:
 ### **Local MCP Servers (Stdio Transport)**
 
 #### **Filesystem Access**
+
 ```json
 {
   "filesystem": {
     "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/files"],
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "/path/to/allowed/files"
+    ],
     "env": {
       "HOME": "/Users/yourname"
     }
@@ -117,6 +146,7 @@ Add to your VSCode `settings.json`:
 ```
 
 #### **Database Connection**
+
 ```json
 {
   "postgres": {
@@ -130,6 +160,7 @@ Add to your VSCode `settings.json`:
 ```
 
 #### **Web Search**
+
 ```json
 {
   "brave-search": {
@@ -145,6 +176,7 @@ Add to your VSCode `settings.json`:
 ### **Remote MCP Servers (HTTP Transport)**
 
 #### **Custom API Server**
+
 ```json
 {
   "my-api": {
@@ -158,6 +190,7 @@ Add to your VSCode `settings.json`:
 ```
 
 #### **SSE (Server-Sent Events) Server**
+
 ```json
 {
   "realtime-data": {
@@ -172,17 +205,17 @@ Add to your VSCode `settings.json`:
 ## **Advanced Configuration**
 
 ### **Server Control Options**
+
 ```json
 {
   "my-server": {
     "command": "node",
     "args": ["server.js"],
-    "disabled": false,                    // Enable/disable entire server
-    "disabledTools": ["dangerous_tool"],  // Disable specific tools
+    "disabled": false, // Enable/disable entire server
+    "disabledTools": ["dangerous_tool"], // Disable specific tools
     "env": {
       "NODE_ENV": "production"
     }
   }
 }
 ```
-
