@@ -24,6 +24,7 @@
             "group": "Core Features",
             "pages": [
               "tasks",
+              "tab-completion",
               "auto-approve",
               "advanced-settings",
               "todo-list",
