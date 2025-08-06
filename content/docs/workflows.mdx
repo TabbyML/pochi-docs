@@ -7,7 +7,6 @@ icon: "Workflow"
 # **Workflows**
 
 ## What are Workflows?
-
 Workflows are step-by-step automation templates that guide Pochi through complex, multi-step processes. Think of them as detailed recipes that Pochi can follow to complete common development tasks consistently and efficiently.
 
 Key Benefits:
@@ -15,8 +14,13 @@ Key Benefits:
 - Efficiency - Automate repetitive multi-step tasks
 - Knowledge Sharing - Capture team expertise in reusable templates
 
+## Prerequisites
+Before using workflows, you will need:
+- VS Code with Pochi extension installed
+- Local repository setup: Clone the repository locally to access workflows
+- Workflows stored in the `.pochi/workflows/` directory
 
-### Creating Workflows
+## Creating Workflows
 Reusable patterns in `.pochi/workflows/`:
 
 Example: `.pochi/workflows/create-pr.md`
@@ -51,4 +55,39 @@ Please help review a PR using the gh CLI:
 - Submit review using `gh pr review` with appropriate feedback
 
 ```
+## How to Use Workflows in VS Code
+Once your workflows are set up, using them is straightforward:
+1. **Type `/` in VS Code** to trigger the Pochi workflow selector
+2. **Select a workflow** from the dropdown menu
+3. Pochi executes the workflow automatically
+
+For best efficiency and accuracy, always use the `/` command rather than manually describing the workflow steps to Pochi.
+
+<div
+  style={{
+    position: "relative",
+    paddingBottom: "53.7%",
+    height: 0,
+    overflow: "hidden",
+    maxWidth: "100%",
+  }}
+>
+  <iframe
+    src="https://drive.google.com/file/d/1p9UeAfkLEOlXBABF4CGub_aqAlAnmbVe/preview"
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      border: "none",
+      borderRadius: "8px",
+    }}
+    allowFullScreen
+    title="Pochi Demo - Workflows"
+  />
+</div>
+
+_This video demonstrates how to use workflows in VS Code_
+
 
