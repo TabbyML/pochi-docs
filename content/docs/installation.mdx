@@ -8,46 +8,47 @@ icon: "Axe"
 
 You can get started with Pochi by installing Pochi's VSCode extension.
 
-### **Install VSCode Extenstion**
+### **1. Install the VSCode Extension**
 
-You can either install through VSCode extension marketplace, or directly clicking the link in your [app.getpochi.com](http://app.getpochi.com) homepage.
+Install the Pochi extension from the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=TabbyML.pochi).
 
-- **VSCode Marketplace**
-  1. **Open VSCode:** Launch the VSCode application.
-  2. **Navigate to Extensions:** Click on the Extensions icon in the Activity Bar on the side of VSCode (`Ctrl + Shift + X` or `Cmd + Shift + X`).
-  3. **Search for Pochi:** In the Extensions search bar, type `Pochi`.
-     <div style={{ display: 'flex', justifyContent: 'center' }}>
-       <img src="/images/introduction/pochi-vscode.png" alt="Pochi VSCode" width="80%" />
-     </div>
+1. Open the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`).
+2. Search for `Pochi` and click **Install**.
 
-- Directly click the `Install Now` button in your Pochi homepage
-  <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <img src="/images/introduction/pochi-homepage.png" alt="Pochi Homepage" width="80%" />
-  </div>
-
-
-Then start installation,
-
-1. **Install the Extension:** Click the “Install” button next to the Pochi extension.
-2. Click the Pochi icon in the Activity Bar.
-3. **Troubleshooting:** If you don’t see the Pochi icon, try restarting VSCode.
+Once installed, the Pochi icon will appear in your Activity Bar.
 
 <Callout title="Getting Started">
  ✅ You should see the Pochi chat window appear in your VSCode editor!
 </Callout>
 
+### **2. Configure an LLM Endpoint (BYOK)**
 
-### **Interacting with Pochi**
+Pochi operates as an AI agent and requires a connection to a Large Language Model (LLM). The primary way to configure this is through the **Bring Your Own Key (BYOK)** model. This approach gives you full control over model choice, costs, and data privacy.
 
-Now you are ready to build along with Pochi\! Try with the following example and see the result.
+To connect your LLM provider:
 
-```text
-Please help generate a webpage to convert times between different time zones. I want to be able to choose multiple time zones at the same time.
+1. Navigate to VSCode Settings (`Ctrl+,` or `Cmd+,`).
+2. Go to `Extensions > Pochi`.
+3. Enter your API key and select your model provider.
+
+No account is necessary to use Pochi with BYOK.
+
+
+### **3. Assign a Task**
+
+Once the extension is configured, you can assign tasks to the agent. Open the Pochi chat window and describe the task in detail.
+
+For example:
+```
+Refactor the `ApiService` class in `src/lib/api.ts` to use `axios` instead of `fetch`. Ensure all existing method signatures are preserved and update error handling to use axios-specific error objects.
 ```
 
-If you want Pochi to help with any existing project you are working on, please connect to your GitHub account on your Pochi account page.
+### **Account-Based Features (Optional)**
 
-1. Click your avatar at the top right corner when logging into [app.getpochi.com](app.getpochi.com).
-2. Connect to your GitHub account in ` External Integrations`
+For teams needing collaborative tools or centralized billing, we offer optional cloud-based services. Creating a Pochi account gives you access to:
 
-![Pochi Github Pn](/images/introduction/pochi-github.png)
+- Pochi's managed LLM models.
+- Shared task histories and team management.
+- Integrations with GitHub and Slack for a collaborative workflow.
+
+To use these features, sign up at [app.getpochi.com](http://app.getpochi.com) and connect your GitHub account in your profile settings.

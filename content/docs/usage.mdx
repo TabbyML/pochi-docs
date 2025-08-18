@@ -6,11 +6,24 @@ icon: "Amphora"
 
 # **Usage**
 
-Understanding Pochi's model support and credit system helps you optimize your development workflow and manage costs effectively.
+Pochi's architecture is designed for flexibility, giving you two primary ways to manage your LLM usage and costs: the **Bring Your Own Key (BYOK)** model and our **Managed Service**.
 
-## **What models are supported**
+## **Bring Your Own Key (BYOK)**
 
-Pochi offers multiple LLM choices to match different development needs and budget requirements. Models in the **Swift** category tend to be faster and more cost-efficient, while those in the **Super** category are better suited for handling higher-complexity tasks, though they may incur higher costs.
+This is the default and recommended model for most developers. It provides maximum control and transparency.
+
+- **Cost**: Pochi itself is free to use with this model. You are only responsible for the token costs charged by your selected LLM provider (e.g., OpenAI, Anthropic, etc.).
+- **Providers**: You can connect any supported LLM by providing your API key in the extension settings.
+- **Billing**: Your LLM provider will bill you directly. Pochi does not add any fees.
+- **Benefits**: Full control over model selection, spending, and data privacy. Ideal for developers with existing API subscriptions or those who want to manage their own stack.
+
+## **Managed Service (Optional)**
+
+For users who prefer a simplified setup or want access to our curated model offerings, we provide an optional managed service. This requires a Pochi account.
+
+- **Cost**: Usage is billed through Pochi on a pay-as-you-go basis. We pass through the direct token costs from the LLM providers, plus a small service fee to cover operational expenses.
+- **Models**: The managed service includes access to a range of models, categorized by performance and cost.
+- **Billing**: We use Stripe for secure payment processing. Upon signing up, you receive a monthly allocation of free credits. After the credits are used, billing occurs based on your token consumption. You can set a monthly spending limit in your profile to control costs.
 
 | Model                | Category         | Best For                                                                                          |
 | :------------------- | :---------------------- | :------------------------------------------------------------------------------------------------ |
@@ -30,22 +43,3 @@ Pochi offers multiple LLM choices to match different development needs and budge
     width="70%"
   />
 </div>
-
-## **Pricing and Billing**
-
-We use **Stripe** to handle all our billing and payment processing securely.
-
-### **Free Features**
-
-**[Tab Completion](/tab-completion)** is free for all users with no usage limits or restrictions. To prevent abuse, 
-we may ask you to add a credit card if your usage exceeds a certain threshold — but don’t worry, Tab Completion feature 
-will remain free.
-
-### **Usage-Based Pricing**
-
-Usage-based billing applies only to **Pochi Task** research and execution usage. 
-
-Upon signing up Pochi, users would receive **$20 free usage credits** each month (renews monthly). Your usage is 
-calculated based on the token cost of the LLMs you use, and we pass these costs directly through to you. We bill 
-you automatically if your outstanding balance exceeds **$10**; otherwise, you are billed for any amount owed at 
-the end of your monthly cycle. To help you manage your costs, you can also set a monthly spending budget on your `/profile` page.

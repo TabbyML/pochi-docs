@@ -1,5 +1,5 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { HomeIcon } from "lucide-react";
+import { Webhook } from "lucide-react";
 import Image from "next/image";
 import logo from "../../public/logo512.png";
 /**
@@ -14,18 +14,18 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <>
         <Image src={logo} alt="Pochi Logo" width={24} height={24} />
-        Pochi Document
+        Pochi Docs
       </>
     ),
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
   links: [
     {
-      label: "Main Site",
-      text: "Main Site",
+      label: "pochi",
+      text: "Pochi",
       url: "https://www.getpochi.com",
       external: true,
-      icon: <HomeIcon className="w-4 h-4" />,
+      icon: <Webhook className="w-4 h-4" />,
     },
   ],
 };
